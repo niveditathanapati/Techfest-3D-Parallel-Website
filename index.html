@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080f20">
+  <meta name="description" content="AETHER — Beyond the Horizon, an immersive parallax expedition by Nivedita Thanapati.">
+  <title>AETHER — Beyond the Horizon</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="loader" id="loader">
+    <div class="loader-symbol">A</div>
+    <p>AETHER <span>EXPEDITION</span></p>
+    <div class="loader-track"><span id="loaderBar"></span></div>
+  </div>
+
+  <canvas id="worldCanvas" aria-hidden="true"></canvas>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a href="#home" class="brand">
+      <span class="brand-mark">A</span>
+      <span>AETHER<small>BEYOND THE HORIZON</small></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+      <a href="#origin">Origin</a>
+      <a href="#ascent">Ascent</a>
+      <a href="#sanctuary">Sanctuary</a>
+      <a href="#beyond">Beyond</a>
+    </nav>
+
+    <a class="nav-cta" href="#destination">ENTER THE UNKNOWN ↗</a>
+  </header>
+
+  <div class="scroll-rail"><div id="railFill"></div></div>
+
+  <div class="scene-counter">
+    <span id="sceneCurrent">01</span><i></i><span>10</span>
+  </div>
+
+  <div class="scroll-hint" id="scrollHint">
+    <span class="hint-dot"></span> SLOW DOWN. LOOK CLOSER.
+  </div>
+
+  <main>
+    <!-- 01: THE FLOATING WORLD -->
+    <section class="scene hero" id="home" data-scene="01">
+      <div class="depth sky" data-depth="-0.08">
+        <div class="star-field"></div>
+        <div class="moon" data-depth="0.12"></div>
+        <div class="sun-halo"></div>
+      </div>
+
+      <div class="depth cloud cloud-a" data-depth="-0.28"></div>
+      <div class="depth cloud cloud-b" data-depth="-0.48"></div>
+      <div class="depth cloud cloud-c" data-depth="-0.7"></div>
+
+      <div class="hero-copy">
+        <p class="eyebrow reveal">AN EXPEDITION INTO THE IMPOSSIBLE</p>
+        <h1 class="hero-title reveal">
+          <span>Beyond</span>
+          <span class="title-second">the <em>Horizon.</em></span>
+        </h1>
+        <p class="hero-description reveal">
+          Somewhere between the world we know and the one we dream of,
+          a different universe begins.
+        </p>
+        <div class="hero-actions reveal">
+          <a href="#origin" class="button button-primary magnetic">Begin the journey <span>↗</span></a>
+          <span class="hero-note">10 WORLDS · ONE JOURNEY</span>
+        </div>
+      </div>
+
+      <div class="depth island island-back" data-depth="0.35">
+        <div class="island-rock"></div><div class="island-top"></div>
+      </div>
+      <div class="depth island island-mid" data-depth="0.65">
+        <div class="island-rock"></div><div class="island-top"></div>
+      </div>
+      <div class="depth island island-front" data-depth="1.05">
+        <div class="island-rock"></div><div class="island-top"></div>
+      </div>
+
+      <div class="depth foreground-ridge" data-depth="1.4"></div>
+
+      <div class="hero-side-label">AN UNKNOWN WORLD / VOL. 001</div>
+      <div class="hero-bottom">
+        <span>SCROLL TO DESCEND ↓</span>
+        <div class="scroll-mouse"><i></i></div>
+        <span>A VISUAL JOURNEY BY <strong>NIVEDITA THANAPATI</strong></span>
+      </div>
+    </section>
+
+    <!-- 02: ORIGIN -->
+    <section class="scene origin" id="origin" data-scene="02">
+      <div class="depth landscape origin-landscape" data-depth="-0.18"></div>
+      <div class="depth origin-mist" data-depth="-0.48"></div>
+      <div class="depth origin-ridge ridge-back" data-depth="0.32"></div>
+      <div class="depth origin-ridge ridge-front" data-depth="0.8"></div>
+
+      <div class="section-index reveal">01 <span>— THE FIRST LIGHT</span></div>
+
+      <div class="scene-copy origin-copy">
+        <p class="eyebrow reveal">EVERYTHING BEGINS SOMEWHERE</p>
+        <h2 class="display-title reveal">Before the<br><em>world had a name.</em></h2>
+        <p class="body-copy reveal">
+          The first light touches a forgotten landscape. Mountains rise from
+          the clouds, and ancient waters remember a sky no one has ever seen.
+          This is not the end of the world. It is the beginning of possibility.
+        </p>
+        <a href="#ascent" class="text-link reveal">Discover the first realm <span>↗</span></a>
+      </div>
+
+      <div class="depth origin-orb" data-depth="0.9">
+        <div class="orb-ring ring-a"></div>
+        <div class="orb-ring ring-b"></div>
+        <div class="orb-core"></div>
+      </div>
+
+      <div class="origin-stat reveal"><strong>001</strong><span>THE WORLD<br>AWAKENS</span></div>
+      <div class="scene-caption">A NEW COSMOS / 06:18 AM</div>
+    </section>
+
+    <!-- 03: ASCENT -->
+    <section class="scene ascent" id="ascent" data-scene="03">
+      <div class="depth ascent-sky" data-depth="-0.12"></div>
+      <div class="depth mountain mountain-far" data-depth="0.16"></div>
+      <div class="depth mountain mountain-mid" data-depth="0.48"></div>
+      <div class="depth mountain mountain-near" data-depth="0.95"></div>
+      <div class="depth ascent-fog" data-depth="-0.42"></div>
+
+      <div class="section-index reveal">02 <span>— THE ASCENT</span></div>
+
+      <div class="scene-copy ascent-copy">
+        <p class="eyebrow reveal">HIGHER THAN THE KNOWN</p>
+        <h2 class="display-title reveal">Where the earth<br>learns to <em>fly.</em></h2>
+        <p class="body-copy reveal">
+          Climb above the familiar. Discover a landscape where stone drifts
+          through the atmosphere and the horizon never stays still.
+        </p>
+      </div>
+
+      <div class="depth floating-rock rock-one" data-depth="1.15">✳</div>
+      <div class="depth floating-rock rock-two" data-depth="-0.65">✧</div>
+      <div class="depth floating-rock rock-three" data-depth="0.85">◇</div>
+
+      <div class="ascent-info reveal">
+        <strong>2,840 M</strong><i></i><span>ABOVE THE CLOUDLINE</span>
+      </div>
+      <div class="side-quote"><span>“</span><p>The higher you climb,<br>the more there is to see.</p></div>
+    </section>
+
+    <!-- 04: CLOUD KINGDOM -->
+    <section class="scene cloud-kingdom" id="clouds" data-scene="04">
+      <div class="depth cloud-sky" data-depth="-0.12"></div>
+      <div class="depth cloud-band band-one" data-depth="-0.36"></div>
+      <div class="depth cloud-band band-two" data-depth="0.25"></div>
+      <div class="depth cloud-band band-three" data-depth="0.62"></div>
+
+      <div class="section-index reveal">03 <span>— THE CLOUD KINGDOM</span></div>
+
+      <div class="scene-copy cloud-copy">
+        <p class="eyebrow reveal">BETWEEN HEAVEN AND EARTH</p>
+        <h2 class="display-title reveal">A thousand<br>worlds in the <em>sky.</em></h2>
+        <p class="body-copy reveal">
+          Drift beyond the familiar. Watch entire horizons unfold as islands
+          float through the clouds, their shadows crossing a sea of light.
+        </p>
+      </div>
+
+      <div class="depth cloud-arch arch-one" data-depth="0.52"><div></div></div>
+      <div class="depth cloud-arch arch-two" data-depth="-0.7"><div></div></div>
+      <div class="depth cloud-island" data-depth="1.1"></div>
+
+      <div class="cloud-tag tag-one reveal">◦ THE UPPER REALM <span>01 / 04</span></div>
+      <div class="cloud-tag tag-two reveal">◦ WEIGHTLESS <span>02 / 04</span></div>
+      <a href="#sanctuary" class="round-link magnetic" aria-label="Continue to sanctuary">↘</a>
+    </section>
+
+    <!-- 05: SANCTUARY -->
+    <section class="scene sanctuary" id="sanctuary" data-scene="05">
+      <div class="depth sanctuary-landscape" data-depth="-0.15"></div>
+      <div class="depth sanctuary-mist mist-back" data-depth="-0.45"></div>
+      <div class="depth temple temple-back" data-depth="0.3">
+        <div class="temple-roof"></div><div class="temple-columns"></div>
+      </div>
+      <div class="depth temple temple-front" data-depth="0.8">
+        <div class="temple-roof"></div><div class="temple-columns"></div>
+      </div>
+      <div class="depth sanctuary-mist mist-front" data-depth="1.15"></div>
+
+      <div class="section-index reveal">04 <span>— THE LOST SANCTUARY</span></div>
+
+      <div class="scene-copy sanctuary-copy">
+        <p class="eyebrow reveal">HIDDEN IN THE SILENCE</p>
+        <h2 class="display-title reveal">Some places<br>remember <em>everything.</em></h2>
+        <p class="body-copy reveal">
+          Past the final ridge stands a sanctuary reclaimed by time.
+          Its silent pillars hold the stories of a civilization that once
+          reached for the stars.
+        </p>
+        <button class="button button-glass" id="revealSanctuary">Reveal the relic <span>✧</span></button>
+      </div>
+
+      <div class="depth relic" id="relic" data-depth="0.7">
+        <div class="relic-aura"></div><div class="relic-crystal"></div>
+        <span>THE FIRST MEMORY</span>
+      </div>
+
+      <div class="scene-caption">34° 09' N / 78° 31' E — LOCATION UNKNOWN</div>
+    </section>
+
+    <!-- 06: ABYSS -->
+    <section class="scene abyss" id="abyss" data-scene="06">
+      <div class="depth abyss-sky" data-depth="-0.12"></div>
+      <div class="depth abyss-stars" data-depth="-0.28"></div>
+      <div class="depth abyss-rings" data-depth="-0.5">
+        <i></i><i></i><i></i>
+      </div>
+
+      <div class="section-index reveal">05 <span>— INTO THE ABYSS</span></div>
+
+      <div class="scene-copy abyss-copy">
+        <p class="eyebrow reveal">THE SILENCE BETWEEN STARS</p>
+        <h2 class="display-title reveal">What lies<br><em>beneath infinity?</em></h2>
+        <p class="body-copy reveal">
+          Beyond the last known light, gravity becomes a suggestion and
+          distance loses its meaning. Keep moving. The universe is larger
+          than your fear.
+        </p>
+        <a href="#observatory" class="text-link reveal">Follow the signal <span>↗</span></a>
+      </div>
+
+      <div class="depth planet parallax-planet" data-depth="0.9">
+        <div class="planet-atmosphere"></div>
+        <div class="planet-surface"></div>
+        <div class="planet-ring"></div>
+        <div class="planet-ring ring-second"></div>
+      </div>
+
+      <div class="abyss-data data-left reveal"><span>UNKNOWN SIGNAL</span><strong>ACTIVE</strong></div>
+      <div class="abyss-data data-right reveal"><span>DEEP SPACE</span><strong>∞</strong></div>
+    </section>
+
+    <!-- 07: OBSERVATORY -->
+    <section class="scene observatory" id="observatory" data-scene="07">
+      <div class="depth observatory-sky" data-depth="-0.12"></div>
+      <div class="depth observatory-glow" data-depth="-0.3"></div>
+      <div class="depth observatory-nebula" data-depth="-0.52"></div>
+
+      <div class="section-index reveal">06 <span>— THE OBSERVATORY</span></div>
+
+      <div class="scene-copy observatory-copy">
+        <p class="eyebrow reveal">LOOK UP. LOOK CLOSER.</p>
+        <h2 class="display-title reveal">The universe<br>is <em>listening.</em></h2>
+        <p class="body-copy reveal">
+          Every distant star is a story still travelling toward us.
+          Choose a constellation. Discover a message from the far edge
+          of the imagination.
+        </p>
+      </div>
+
+      <div class="depth observatory-orbit" data-depth="0.35">
+        <div class="orbit orbit-outer"></div>
+        <div class="orbit orbit-middle"></div>
+        <div class="orbit orbit-inner"></div>
+        <button class="star-node node-one" data-star="The Voyager" aria-label="Explore The Voyager">✦</button>
+        <button class="star-node node-two" data-star="The Dreamer" aria-label="Explore The Dreamer">✦</button>
+        <button class="star-node node-three" data-star="The Eternal" aria-label="Explore The Eternal">✦</button>
+        <div class="orbit-center">✧</div>
+      </div>
+
+      <div class="star-detail" id="starDetail" aria-live="polite">
+        <span>CONSTELLATION / 000</span>
+        <strong>Choose a star</strong>
+        <p>Touch a glowing point to uncover its story.</p>
+      </div>
+      <div class="scene-caption">THREE SIGNALS DETECTED · ● ● ●</div>
+    </section>
+
+    <!-- 08: GATEWAY -->
+    <section class="scene gate" id="beyond" data-scene="08">
+      <div class="depth gate-background" data-depth="-0.12"></div>
+      <div class="depth gate-light" data-depth="-0.3"></div>
+
+      <div class="section-index reveal">07 <span>— THE THRESHOLD</span></div>
+
+      <div class="scene-copy gate-copy">
+        <p class="eyebrow reveal">ONE FINAL STEP</p>
+        <h2 class="display-title reveal">You were never<br>meant to <em>stay.</em></h2>
+        <p class="body-copy reveal">
+          Every discovery opens another door. Every horizon hides another.
+          The only question left is whether you are ready to cross.
+        </p>
+        <button class="button button-primary" id="openGate">Open the gateway <span>↗</span></button>
+      </div>
+
+      <div class="depth portal-wrap" data-depth="0.42" id="portalWrap">
+        <div class="portal-halo"></div>
+        <div class="portal-ring portal-ring-one"></div>
+        <div class="portal-ring portal-ring-two"></div>
+        <div class="portal-core"><span>BEYOND</span></div>
+      </div>
+
+      <div class="scene-caption">THE LAST KNOWN BOUNDARY / 008</div>
+    </section>
+
+    <!-- 09: DESTINATION -->
+    <section class="scene destination" id="destination" data-scene="09">
+      <div class="depth destination-sky" data-depth="-0.12"></div>
+      <div class="depth destination-glow" data-depth="-0.3"></div>
+      <div class="depth destination-mountain dest-far" data-depth="0.2"></div>
+      <div class="depth destination-mountain dest-mid" data-depth="0.52"></div>
+      <div class="depth destination-mountain dest-near" data-depth="1.0"></div>
+
+      <div class="section-index reveal">08 <span>— BEYOND THE HORIZON</span></div>
+
+      <div class="scene-copy destination-copy">
+        <p class="eyebrow reveal">THE WORLD ON THE OTHER SIDE</p>
+        <h2 class="display-title reveal">And here,<br><em>everything begins.</em></h2>
+        <p class="body-copy reveal">
+          There are no maps for this place. No paths laid by those before us.
+          Just a horizon waiting for its first explorer.
+        </p>
+        <button class="button button-glass" id="restartJourney">Experience it again <span>↻</span></button>
+      </div>
+
+      <div class="depth monolith" data-depth="0.88">
+        <div class="monolith-face"></div><div class="monolith-glow"></div>
+      </div>
+
+      <div class="scene-caption">A NEW WORLD / A NEW BEGINNING</div>
+    </section>
+
+    <!-- 10: EPILOGUE -->
+    <section class="scene epilogue" id="epilogue" data-scene="10">
+      <div class="depth epilogue-stars" data-depth="-0.18"></div>
+      <div class="depth epilogue-orb" data-depth="-0.45"></div>
+      <div class="depth epilogue-orb orb-second" data-depth="0.45"></div>
+
+      <div class="epilogue-content">
+        <div class="brand-mark epilogue-mark">A</div>
+        <p class="eyebrow reveal">THE JOURNEY NEVER ENDS</p>
+        <h2 class="display-title reveal">Keep looking<br><em>beyond.</em></h2>
+        <p class="epilogue-message reveal">Made for dreamers. Built for the curious.</p>
+        <div class="epilogue-credit reveal">
+          <span>CREATED BY</span>
+          <strong>Nivedita Thanapati</strong>
+          <span>AETHER / AN INTERACTIVE PARALLAX EXPERIENCE</span>
+        </div>
+        <a class="button button-primary" href="#home">Return to the beginning ↑</a>
+      </div>
+
+      <div class="epilogue-footer">
+        <span>© AETHER EXPEDITION</span>
+        <span>AN EXPERIMENT IN DEPTH & MOTION</span>
+        <a href="#home">BACK TO TOP ↑</a>
+      </div>
+    </section>
+  </main>
+
+  <div class="star-modal" id="starModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+    <span class="eyebrow">FIELD NOTES / COSMIC ARCHIVE</span>
+    <h2 id="modalTitle">The Voyager</h2>
+    <p id="modalDescription"></p>
+    <span class="modal-coordinate">AETHER EXPEDITION — INTERSTELLAR ARCHIVE</span>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <button class="sound-toggle" id="soundToggle" aria-pressed="false">
+    <span class="sound-bars"><i></i><i></i><i></i><i></i></span>
+    <span id="soundLabel">AMBIENT MODE</span>
+  </button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
